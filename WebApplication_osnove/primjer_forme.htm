@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>forma</title>
+    <script type="text/javascript" language="javascript">
+        function Pozdrav() {
+            alert("Ovo je neki alert koji se otvori kada se učita stranica.");
+        }
+        function pisi()
+        {
+            console.log("Miš je iznad mene!!!! aaaaa");
+        }
+    </script>
+</head>
+<body onload="Pozdrav()">
+
+    <input onmouseover="pisi" type="button" onclick="Pozdrav()" value="Kad vidiš komandanta fazore u"/>
+    <form>
+        Programiranje u: <br />
+        <input type="checkbox" name="vbnet"/> Vb net <br />
+        <input type="checkbox" name="CHARP"/> C# <br />
+        <input type="checkbox" name="pehape"/> PHP <br />
+        <input type="submit" value="Potvrdi"
+    </form>
+
+</body>
+</html>
