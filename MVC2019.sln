@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication_osnove", "We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormsPrimjer", "WebFormsPrimjer\WebFormsPrimjer.csproj", "{DD3B142B-169A-4369-833E-005E15E5F16C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{8057691D-83DE-4B50-99F5-2B69D12A065A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DD3B142B-169A-4369-833E-005E15E5F16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD3B142B-169A-4369-833E-005E15E5F16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD3B142B-169A-4369-833E-005E15E5F16C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8057691D-83DE-4B50-99F5-2B69D12A065A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8057691D-83DE-4B50-99F5-2B69D12A065A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8057691D-83DE-4B50-99F5-2B69D12A065A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8057691D-83DE-4B50-99F5-2B69D12A065A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
