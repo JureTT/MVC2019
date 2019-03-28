@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormsPrimjer", "WebForms
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{8057691D-83DE-4B50-99F5-2B69D12A065A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zadatak 2.1.1 zbirka", "zadatak 2.1.1 zbirka\zadatak 2.1.1 zbirka.csproj", "{D937731A-F3E9-4E12-A2E4-3E8FADEAB14D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zadatak 3.1.1 zbirka", "zadatak 3.1.1 zbirka\zadatak 3.1.1 zbirka.csproj", "{1AC938A7-653C-4D44-B773-320BCE3A66E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{8057691D-83DE-4B50-99F5-2B69D12A065A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8057691D-83DE-4B50-99F5-2B69D12A065A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8057691D-83DE-4B50-99F5-2B69D12A065A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D937731A-F3E9-4E12-A2E4-3E8FADEAB14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D937731A-F3E9-4E12-A2E4-3E8FADEAB14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D937731A-F3E9-4E12-A2E4-3E8FADEAB14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D937731A-F3E9-4E12-A2E4-3E8FADEAB14D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC938A7-653C-4D44-B773-320BCE3A66E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC938A7-653C-4D44-B773-320BCE3A66E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC938A7-653C-4D44-B773-320BCE3A66E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC938A7-653C-4D44-B773-320BCE3A66E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
