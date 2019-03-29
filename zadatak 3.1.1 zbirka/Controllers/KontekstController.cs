@@ -14,8 +14,8 @@ namespace zadatak_3._1._1_zbirka.Controllers
             string poruka = "Danas je " + DateTime.Now.ToLongDateString();
             return View((object)poruka);
         }
-        // Ime i prezime
-        public string QueryPodaci()
+        // Ime i prezime - metoda prima podatke preko query stringa i vraća ih
+        public string QueryPodaci()   // ovo je metoda(controller) koja vraća tekst te joj stoga nije potreban View
         {
             if(Request.QueryString["Ime"] == null || Request.QueryString["Prezime"] == null)
             {
@@ -29,8 +29,8 @@ namespace zadatak_3._1._1_zbirka.Controllers
                 return string.Format("<p>Ime i prezime iz query stringa su {0}.", tekstSaStilom);
             }
         }
-        // Route podaci
-        public string RoutePodaci()
+        // Route podaci - metoda prima podatke preko routa i vraća ih
+        public string RoutePodaci()     // ovo je također metoda(controller) koja vraća tekst te joj stoga nije potreban View
         {
             try
             {
