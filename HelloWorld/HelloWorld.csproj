@@ -148,6 +148,7 @@
     <Compile Include="Controllers\PozdravSvijeteController.cs" />
     <Compile Include="Controllers\PrviController.cs" />
     <Compile Include="Controllers\SimpleBindingController.cs" />
+    <Compile Include="Controllers\TocanOdgovorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,6 +198,7 @@
     <Content Include="Views\Osoba\PopuniOsobu.cshtml" />
     <Content Include="Views\Osoba\PrikaziOsobu.cshtml" />
     <Content Include="Views\BrojGodina\RacunajBrojGodina.cshtml" />
+    <Content Include="Views\TocanOdgovor\ProvjeriOdgovor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

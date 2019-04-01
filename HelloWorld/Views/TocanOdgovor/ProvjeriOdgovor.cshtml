@@ -1,0 +1,29 @@
+﻿@model String
+@{
+    ViewBag.Title = "ProvjeriOdgovor";
+}
+
+<h2>ProvjeriOdgovor</h2>
+
+<div>
+    <form method="post" action="~/TocanOdgovor/ProvjeriOdgovor">
+        <div>
+            <label>Koji je danas dan u tjednu:</label>
+        </div>
+        <div>
+            <input type="radio" name="Dan" value=0 /> Nedjelja<br />
+            <input type="radio" name="Dan" value=1 /> Ponedjeljak<br />
+            <input type="radio" name="Dan" value=2 /> Utorak<br />
+            <input type="radio" name="Dan" value=3 /> Srijeda<br />
+            <input type="radio" name="Dan" value=4 /> Četvrtak<br />
+            <input type="radio" name="Dan" value=5 /> Petak<br />
+            <input type="radio" name="Dan" value=6 /> Subota<br />
+        </div>
+        <div>
+            <button type="submit">Provjera</button>
+        </div>
+    </form>
+</div>
+<div>
+    <label>Unešeni odgovor je: @Model.</label>
+</div>
