@@ -16,7 +16,7 @@ namespace HelloWorld.Controllers
         }
         // POST: Osoba/PopuniOsobu
         [HttpPost]
-        public ActionResult PopuniOsobu(Osoba osoba)
+        public ActionResult PrikaziOsobu(Osoba osoba)
         {
             return View(osoba);
         }

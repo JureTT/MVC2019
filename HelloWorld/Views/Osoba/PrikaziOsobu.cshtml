@@ -1,0 +1,34 @@
+﻿@model HelloWorld.Models.Osoba
+@{
+    ViewBag.Title = "PrikaziOsobu";
+}
+<style>
+    label {
+        width: 100px;
+    }
+</style>
+<h2>PrikaziOsobu</h2>
+
+<div>
+    <form method="post" action="/Osoba/PopuniOsobu">
+        <div>
+            <label>Ime:</label>
+            <label> @Model.Ime</label>
+        </div>
+        <div>
+            <label>Prezime:</label>
+            <label> @Model.Prezime</label>
+        </div>
+        <div>
+            <label>Email:</label>
+            <label> @Model.Email</label>
+        </div>
+        <div>
+            <label>Datum:</label>
+            <label> @(((DateTime)Model.DatumRodjenja).ToShortDateString())</label>          <!-- zbog 'nullable' dodatka(upinika) u modelu "DatumRodjenja" nije više DateTime tipa pa ga se mora ponovo pretvoriti(kastati) u taj tip-->
+        </div>
+        <div>
+            <button>Natrag</button>
+        </div>
+    </form>
+</div>

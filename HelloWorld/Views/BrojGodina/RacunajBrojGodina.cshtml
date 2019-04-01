@@ -1,0 +1,21 @@
+﻿@model int?
+@{
+    ViewBag.Title = "RacunajBrojGodina";
+}
+
+<h2>RacunajBrojGodina</h2>
+
+<div>
+    <form method="post" action="~/BrojGodina/RacunajBrojGodina">
+        <div>
+            <label>Datum:</label>
+            <input type="text" name="Datum" />
+        </div>
+        <div>
+            <button type="submit">Izračunaj</button>
+        </div>
+    </form>    
+</div>
+<div>
+    <label>Broj godina od datuma koji je unešen u formu je: @Model</label>
+</div>

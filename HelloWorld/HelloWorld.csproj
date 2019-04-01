@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -141,6 +142,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BrojGodinaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OsobaController.cs" />
     <Compile Include="Controllers\PozdravSvijeteController.cs" />
@@ -193,6 +195,8 @@
     <Content Include="Views\Prvi\DrugaMetodaSParametrima.cshtml" />
     <Content Include="Views\SimpleBinding\SimpleBind.cshtml" />
     <Content Include="Views\Osoba\PopuniOsobu.cshtml" />
+    <Content Include="Views\Osoba\PrikaziOsobu.cshtml" />
+    <Content Include="Views\BrojGodina\RacunajBrojGodina.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

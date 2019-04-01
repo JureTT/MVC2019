@@ -1,34 +1,35 @@
-﻿@model HelloWorld.Models.Osoba
+﻿
 @{
     ViewBag.Title = "PopuniOsobu";
 }
+<style>
+    label {
+        width: 100px;
+    }
+</style>
 
 <h2>PopuniOsobu</h2>
 
 <div>
-    <form method="post" action="/Osobe/PrikaziOsobu">
+    <form method="post" action="/Osoba/PrikaziOsobu">
         <div>
             <label>Ime:</label>
-            <input type="text" name="Ime" />
+            <input type="text" name="Ime"/>
         </div>
         <div>
             <label>Prezime:</label>
-            <input type="text" name="Prezime" />
+            <input type="text" name="Prezime"/>
         </div>
         <div>
             <label>Email:</label>
-            <input type="text" name="Email" />
+            <input type="text" name="Email"/>
         </div>
         <div>
             <label>Datum:</label>
-            <input type="text" name="DatumRodjenja" />
+            <input type="text" name="DatumRodjenja"/>
         </div>
         <div>
             <button type="submit">Pošalji</button>
         </div>
     </form>
-</div>
-
-<div>
-    @Model.Ime; @Model.Prezime; @Model.Email; @Model.DatumRodjenja;
 </div>
