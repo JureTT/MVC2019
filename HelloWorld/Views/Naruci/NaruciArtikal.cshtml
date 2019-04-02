@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "NaruciArtikal";
+    string[] kategorije = new string[] { "Kozmetika", "Obuća", "Odjeća", "Nakit" };
+}
+<style>
+    label
+    {
+        width:100px;
+    }
+</style>
+<h2>NaruciArtikal</h2>
+
+<div>
+    <form method="post" >       
+        <div>
+            <label>Kategorija:</label>
+            @*<select name="Kategorija">
+                <option value=""></option>
+                @foreach(string item in kategorije)
+                {
+                    <option value="item">item</option>                    
+                }
+            </select>*@
+            <select name="Kategorija">
+                <option value=""></option>
+                <option value="Kozmetika">Kozmetika</option>
+                <option value="Obuća">Obuća</option>
+                <option value="Odjeća">Odjeća</option>
+                <option value="Nakit">Nakit</option>
+            </select>
+        </div>
+        <div>
+            <label>Naziv:</label>
+            <input type="text" name="Naziv"/>
+        </div>
+        <div>
+            <label>Cijena:</label>
+            <input type="text" name="Cijena" />
+        </div>
+        <div>
+            <label>Kolicina:</label>
+            <input type="number" name="Kolicina" />
+        </div>
+        <div>
+            <button type="submit">Naruči</button>
+        </div>
+    </form>
+</div>
+<div>@ViewBag.Poruka</div>
