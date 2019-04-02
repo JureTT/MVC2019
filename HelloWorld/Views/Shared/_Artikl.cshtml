@@ -1,0 +1,17 @@
+﻿@model HelloWorld.Models.Artikl
+
+<style>
+    #borderDemo {
+        border: 5px dotted #1C6EA4;
+        border-radius: 40px 2px 26px 0px;
+        padding: 10px;
+        width: 200px;
+    }
+</style>
+
+<div id="borderDemo">
+    <h3>@Model.Naziv</h3>
+    @Model.Cijena   -> Količina: @Model.Kolicina<br />
+    <span>@Model.Kategorija</span>
+</div>
+<br />

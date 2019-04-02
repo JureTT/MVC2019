@@ -147,6 +147,7 @@
     <Compile Include="Controllers\LayoutSectionController.cs" />
     <Compile Include="Controllers\NaruciController.cs" />
     <Compile Include="Controllers\OsobaController.cs" />
+    <Compile Include="Controllers\ParcijalniPoglediController.cs" />
     <Compile Include="Controllers\PozdravSvijeteController.cs" />
     <Compile Include="Controllers\PrviController.cs" />
     <Compile Include="Controllers\SimpleBindingController.cs" />
@@ -206,6 +207,8 @@
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <Content Include="Views\LayoutSection\Stranica1.cshtml" />
     <Content Include="Views\LayoutSection\Stranica2.cshtml" />
+    <Content Include="Views\ParcijalniPogledi\PrikaziKosaricu.cshtml" />
+    <Content Include="Views\Shared\_Artikl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

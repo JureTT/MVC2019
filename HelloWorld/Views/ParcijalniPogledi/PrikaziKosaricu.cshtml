@@ -1,0 +1,11 @@
+﻿@model List<HelloWorld.Models.Artikl>
+@{
+    ViewBag.Title = "PrikaziKosaricu";
+}
+
+<h2>PrikaziKosaricu</h2>
+@foreach(var item in Model)
+{
+    //@item.Naziv<br />
+    @Html.Partial("_Artikl", item);
+}
