@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <img src="https://repozitorij.algebra.hr/sites/repozitorij.algebra.hr/files/algebra_subbrand_vu_color-black_h_1.png"
+    </div>
+    <div>
+        <a href="/LayoutSection/Stranica1">Stranica 1</a> | <a href="/LayoutSection/Stranica2">Stranica2</a>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <div>
+        @RenderSection("Detalji", false)
+    </div>
+</body>
+</html>
