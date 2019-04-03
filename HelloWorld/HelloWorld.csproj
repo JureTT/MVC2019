@@ -143,7 +143,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BrojGodinaController.cs" />
+    <Compile Include="Controllers\ChildActionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HtmlHelperiController.cs" />
     <Compile Include="Controllers\LayoutSectionController.cs" />
     <Compile Include="Controllers\NaruciController.cs" />
     <Compile Include="Controllers\OsobaController.cs" />
@@ -209,6 +211,10 @@
     <Content Include="Views\LayoutSection\Stranica2.cshtml" />
     <Content Include="Views\ParcijalniPogledi\PrikaziKosaricu.cshtml" />
     <Content Include="Views\Shared\_Artikl.cshtml" />
+    <Content Include="Views\ChildAction\ChildActionView.cshtml" />
+    <Content Include="Views\HtmlHelperi\Index.cshtml" />
+    <Content Include="Views\HtmlHelperi\FormHelper.cshtml" />
+    <Content Include="Views\HtmlHelperi\StronglyTypedHelper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
