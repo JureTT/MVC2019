@@ -1,0 +1,46 @@
+﻿@model HelloWorld.Models.Osoba
+@{
+    ViewBag.Title = "FormHelper";
+}
+
+<h2>FormHelper</h2>
+
+@foreach (var item in ViewBag.Mjesta)
+{
+    @item <span> </span>
+}
+<div>
+@using (Html.BeginForm())
+{
+    <div>
+        <label for="Ime">Ime:</label>
+        @Html.TextBox("Ime", Model.Ime)
+    </div>
+    <div>
+        <label for="Prezime">Prezime:</label>
+        @Html.TextBox("Prezime", Model.Prezime)
+    </div>
+    <div>
+        <label for="Email">Email:</label>
+        @Html.TextBox("Email", Model.Email)
+    </div>
+    <div>  
+        <label for="MjestoStanovanja">MjestoStanovanja:</label>
+        @Html.DropDownList("MjestoStanovanja", 
+                 new SelectList((string[])ViewBag.Mjesta), "--Odaberi--")
+    </div>
+    <div>
+        <label for="Spol">Spol:</label><br />
+        @Html.RadioButton("Spol", "M", true) Muško <br />
+        @Html.RadioButton("Spol", "Ž", false) Žensko <br />
+    </div>
+    <div>
+        <label for="Zapsolen">Zaposlen:</label>
+        @Html.CheckBox("Zaposlen", false)<br />
+    </div>
+    <input type="submit" value="Pošalji"/>
+}
+</div>
+<div>
+    <label class="redColor">@ViewBag.Poruka</label>
+</div>

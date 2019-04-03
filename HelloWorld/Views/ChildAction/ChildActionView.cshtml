@@ -1,0 +1,12 @@
+﻿@model  string[]
+@{
+    ViewBag.Title = "ChildActionView";
+}
+
+<h2>ChildActionView</h2>
+
+@foreach (var item in Model)
+{
+    @item <span> je </span> @Html.Action("OdrediGrupuProizvoda", new { proizvod = item }) <br />
+    @Html.TextBox(item, item + " x", new { @class = "namirnice"}) <span> je </span> @Html.Action("OdrediGrupuProizvoda", new { proizvod = item }) <br />
+}
