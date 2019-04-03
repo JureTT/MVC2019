@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "SwitchView";
+    string voce = "jabuka";
+}
+
+<h2>SwitchView</h2>
+
+@switch (voce)
+{
+    case "banana":
+        <p>Voce je banana</p>
+        break;
+    case "jabuka":
+        <p>Voce je jabuka</p>
+        break;
+    default:
+        <p>Voce je neko drugo</p>
+        break;
+}

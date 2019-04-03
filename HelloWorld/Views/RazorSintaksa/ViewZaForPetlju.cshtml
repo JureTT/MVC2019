@@ -1,0 +1,50 @@
+﻿@model string[]
+@{
+    ViewBag.Title = "ViewZaForPetlju";
+}
+
+<h2>ViewZaForPetlju</h2>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+<ul>
+    @for (int i = 0; i < Model.Length; i++)
+    {
+        <li>@Model[i]</li>
+    }
+</ul>
+
+<hr />
+
+<h3>Ispis pomoću 'while' petlje</h3>
+
+@{ 
+    int j = Model.Length - 1;
+}
+<ul>
+    @while (j >= 0)
+    {
+        <li>@Model[j]</li>
+        j--;
+    }
+</ul>
+
+<h3>Ispis pomoću 'while' petlje  -  NAPRIJED</h3>
+
+@{ 
+    int k = 0;
+}
+<ul>
+    @while (k < Model.Length)
+    {
+        <li>@Model[k]</li>
+        k++;
+    }
+</ul>
+
+@* Ovo je komentar *@

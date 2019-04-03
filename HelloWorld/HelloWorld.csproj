@@ -150,6 +150,7 @@
     <Compile Include="Controllers\ParcijalniPoglediController.cs" />
     <Compile Include="Controllers\PozdravSvijeteController.cs" />
     <Compile Include="Controllers\PrviController.cs" />
+    <Compile Include="Controllers\RazorSintaksaController.cs" />
     <Compile Include="Controllers\SimpleBindingController.cs" />
     <Compile Include="Controllers\TocanOdgovorController.cs" />
     <Compile Include="Global.asax.cs">
@@ -209,6 +210,9 @@
     <Content Include="Views\LayoutSection\Stranica2.cshtml" />
     <Content Include="Views\ParcijalniPogledi\PrikaziKosaricu.cshtml" />
     <Content Include="Views\Shared\_Artikl.cshtml" />
+    <Content Include="Views\RazorSintaksa\SwitchView.cshtml" />
+    <Content Include="Views\RazorSintaksa\ViewZaForPetlju.cshtml" />
+    <Content Include="Views\Shared\_OsnovniLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
