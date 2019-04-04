@@ -21,25 +21,25 @@ namespace HelloWorld.Controllers
         };
         public ViewResult FormHelper()
         {
-            ViewBag.Mjesta = mjesta;
+            ViewBag.Mjesta = this.mjesta;
             return View(new Osoba());
         }
         [HttpPost]
         public ViewResult FormHelper(Osoba osoba)
         {
-            ViewBag.Mjesta = mjesta;
+            ViewBag.Mjesta = this.mjesta;
             ViewBag.Poruka = "Uspjeh, juhu :)";
             return View(new Osoba());
         }
         public ViewResult StronglyTypedHelper()
         {
-            ViewBag.Mjesta = mjesta;
+            ViewBag.Mjesta = this.mjesta;
             return View(new Osoba());
         }
         [HttpPost]
         public ViewResult StronglyTypedHelper(Osoba osoba)
         {
-            ViewBag.Mjesta = mjesta;
+            ViewBag.Mjesta = this.mjesta;
             ViewBag.Poruka = "Uspješno unešeni podaci, juhu :)";
             return View(new Osoba());
         }

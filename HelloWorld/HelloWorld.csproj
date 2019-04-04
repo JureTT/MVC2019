@@ -151,6 +151,7 @@
     <Compile Include="Controllers\OsobaController.cs" />
     <Compile Include="Controllers\ParcijalniPoglediController.cs" />
     <Compile Include="Controllers\PozdravSvijeteController.cs" />
+    <Compile Include="Controllers\PrikazSaChildAkcijomController.cs" />
     <Compile Include="Controllers\PrviController.cs" />
     <Compile Include="Controllers\RazorSintaksaController.cs" />
     <Compile Include="Controllers\SimpleBindingController.cs" />
@@ -219,6 +220,8 @@
     <Content Include="Views\HtmlHelperi\Index.cshtml" />
     <Content Include="Views\HtmlHelperi\FormHelper.cshtml" />
     <Content Include="Views\HtmlHelperi\StronglyTypedHelper.cshtml" />
+    <Content Include="Views\Shared\_PosebniLayout.cshtml" />
+    <Content Include="Views\PrikazSaChildAkcijom\ObradiListu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

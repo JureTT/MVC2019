@@ -1,0 +1,34 @@
+﻿@model List<HelloWorld.Models.Artikl>
+@{
+    ViewBag.Title = "ObradiListu";
+}
+
+<h2>ObradiListu</h2>
+
+<style>
+    thead {
+        background-color:lightgreen;
+    }
+</style>
+<table>
+    <thead>
+        <tr >
+            <td colspan="3">Ovo je popis artikala</td>
+        </tr>
+        <tr>
+            <td>Naziv: </td>
+            <td>Kategorija: </td>
+            <td>Cijena: </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Naziv </td>
+            <td>@Html.Action("OdrediKategoriju", new { artikl = item }) </td>
+            <td>@item.Cijena </td>
+        </tr>
+        }
+    </tbody>
+</table>
