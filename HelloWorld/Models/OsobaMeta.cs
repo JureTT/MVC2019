@@ -1,22 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HelloWorld.Models
 {
-    public class Osoba
+    public class OsobaMeta
     {
+        [HiddenInput(DisplayValue = false)]
         public int OsobaId { get; set; }
+
         public string Ime { get; set; }
+
         public string Prezime { get; set; }
+
         public string Email { get; set; }
-        public DateTime? DatumRodjenja { get; set; }
+
+        [Display(Name = "MjestoStanovanja")]
+        [UIHint("TemplMjesta")]
         public string MjestoStanovanja { get; set; }
+
         public bool Zaposlen { get; set; }
+
+        [UIHint("TemplSpol")]
         public string Spol { get; set; }
-        public int BrojCipela { get; set; }  //dodano bezveze
+
+        [DataType(DataType.Date)]
+        public DateTime? DatumRodjenja { get; set; }
+
         public string Napomena { get; set; }
+
+        [UIHint("MultilineText")]
         public Adresa AdresaOsobe { get; set; }
     }
 }

@@ -1,0 +1,22 @@
+﻿@model HelloWorld.Models.OsobaMeta
+@{
+    ViewBag.Title = "MetaDataView";
+}
+
+<h2>MetaDataView</h2>
+
+<div>
+    <h2>@Html.LabelForModel()</h2>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.EditorForModel()
+            </div>
+            <div>
+                @Html.EditorFor(x => x.AdresaOsobe)
+            </div>
+            <input type="submit" value="Pošalji" />
+        }
+    </div>
+</div>

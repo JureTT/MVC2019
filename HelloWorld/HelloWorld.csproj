@@ -147,6 +147,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HtmlHelperiController.cs" />
     <Compile Include="Controllers\LayoutSectionController.cs" />
+    <Compile Include="Controllers\MetaDataHtmlHelperiController.cs" />
     <Compile Include="Controllers\NaruciController.cs" />
     <Compile Include="Controllers\OsobaController.cs" />
     <Compile Include="Controllers\ParcijalniPoglediController.cs" />
@@ -155,11 +156,14 @@
     <Compile Include="Controllers\PrviController.cs" />
     <Compile Include="Controllers\RazorSintaksaController.cs" />
     <Compile Include="Controllers\SimpleBindingController.cs" />
+    <Compile Include="Controllers\TemplHtmlHelperiController.cs" />
     <Compile Include="Controllers\TocanOdgovorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adresa.cs" />
     <Compile Include="Models\Artikl.cs" />
+    <Compile Include="Models\OsobaMeta.cs" />
     <Compile Include="Models\Osoba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -222,6 +226,10 @@
     <Content Include="Views\HtmlHelperi\StronglyTypedHelper.cshtml" />
     <Content Include="Views\Shared\_PosebniLayout.cshtml" />
     <Content Include="Views\PrikazSaChildAkcijom\ObradiListu.cshtml" />
+    <Content Include="Views\TemplHtmlHelperi\HtmlEditorView.cshtml" />
+    <Content Include="Views\TemplHtmlHelperi\HtmlLabelDisplay.cshtml" />
+    <Content Include="Views\TemplHtmlHelperi\EditorModelView.cshtml" />
+    <Content Include="Views\MetaDataHtmlHelperi\MetaDataView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
