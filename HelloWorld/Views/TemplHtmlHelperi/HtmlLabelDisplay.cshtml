@@ -1,0 +1,54 @@
+﻿@model HelloWorld.Models.OsobaMeta
+@{
+    ViewBag.Title = "HtmlLabelDisplay";
+}
+
+<h2>HtmlLabelDisplay</h2>
+
+<style>
+    label {
+        display: inline-block;
+        width: 150px;
+        margin: 5px;
+        font-weight: bold;
+    }
+</style>
+
+<div>
+    <div>
+        @Html.Label("OsobaId");
+        @Html.Display("OsobaId");
+    </div>
+    <div>
+        @Html.Label("Ime");
+        @Html.Display("Ime");
+    </div>
+    <div>
+        @Html.Label("Prezime");
+        @Html.Display("Prezime");
+    </div>
+    <div>
+        @Html.Label("Email");
+        @Html.Display("Email");
+    </div>
+    <div>
+        @Html.LabelFor(x => x.MjestoStanovanja);
+        @Html.DisplayFor(x => x.MjestoStanovanja);
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Spol);
+        @Html.DisplayFor(x => x.Spol);
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Zaposlen);
+        @Html.DisplayFor(x => x.Zaposlen);
+    </div>
+    <div>
+        @Html.LabelFor(x => x.DatumRodjenja);
+        @Html.DisplayFor(x => x.DatumRodjenja);
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Napomena);
+        @Html.DisplayFor(x => x.Napomena);
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@model HelloWorld.Models.Osoba
+@{
+    ViewBag.Title = "HtmlEditorView";
+    Html.EnableClientValidation(false);
+}
+
+<h2>HtmlEditorView</h2>
+
+<style>
+    label {
+        display: inline-block;
+        width: 150px;
+        margin: 5px;
+        font-weight: bold;
+    }
+</style>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <div>
+            <label>Id: </label>
+            @Html.Editor("OsobaId")
+        </div>
+        <div>
+            <label>Ime: </label>
+            @Html.Editor("Ime")
+        </div>
+        <div>
+            <label>Prezime: </label>
+            @Html.Editor("Prezime")
+        </div>
+        <div>
+            <label>Email: </label>
+            @Html.Editor("Email")
+        </div>
+        <div>
+            <label>Mjesto stanovanja: </label>
+            @Html.EditorFor(x => x.MjestoStanovanja)
+        </div>
+        <div>
+            <label>Spol: </label>
+            @Html.EditorFor(x => x.Spol)
+        </div>
+        <div>
+            <label>Zaposlen: </label>
+            @Html.EditorFor(x => x.Zaposlen)
+        </div>
+        <div>
+            <label>Datum rođenja: </label>
+            @Html.EditorFor(x => x.DatumRodjenja)
+        </div>
+        <div>
+            <label>Napomena: </label>
+            @Html.EditorFor(x => x.Napomena)
+        </div>
+
+        <input type="submit" value="Pošalji"/>
+    }
+</div>
