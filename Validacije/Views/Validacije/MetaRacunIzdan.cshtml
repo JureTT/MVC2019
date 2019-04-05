@@ -1,0 +1,37 @@
+﻿@model Validacije.Models.MetaRacun
+@{
+    ViewBag.Title = "MetaRacunIzdan";
+}
+
+<h2>MetaRacunIzdan</h2>
+
+<style>
+    label{
+        display:inline-block;
+        width:150px;
+        margin:5px;
+        font-weight:bold;
+    }
+</style>
+
+<h3>Racun @Html.DisplayFor(x => x.BrojRacuna) izdan!</h3>
+
+<br />
+<h3>Podaci računa:</h3>
+<hr />
+<div>
+    @Html.LabelFor(x => x.Datum)
+    @Html.DisplayFor(x => x.Datum)
+</div>
+<div>
+    @Html.LabelFor(x => x.Zaposlenik)
+    @Html.DisplayFor(x => x.Zaposlenik)
+</div>
+<div>
+    @Html.LabelFor(x => x.Kupac)
+    @Html.DisplayFor(x => x.Kupac)
+</div>
+<div>
+    @Html.LabelFor(x => x.Cijena)
+    @Html.DisplayFor(x => x.Cijena)
+</div>

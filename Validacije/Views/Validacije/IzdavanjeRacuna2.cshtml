@@ -1,0 +1,49 @@
+﻿@model Validacije.Models.Racun
+@{
+    ViewBag.Title = "IzdavanjeRacuna2";
+    Html.EnableClientValidation(false);
+}
+
+<style>
+    label {
+        display: inline-block;
+        width: 150px;
+        margin: 5px;
+        font-weight: bold;
+    }
+</style>
+
+<h2>IzdvajanjeRacuna2</h2>
+
+@using (Html.BeginForm("IzdavanjeRacuna", "Validacije"))
+{
+    @Html.ValidationSummary()
+    <div>
+        <label>Broj računa: </label>
+        @Html.EditorFor(x => x.BrojRacuna)
+        @Html.ValidationMessageFor(x => x.BrojRacuna)
+    </div>
+    <div>
+        <label>Datum: </label>
+        @Html.EditorFor(x => x.Datum)
+        @Html.ValidationMessageFor(x => x.Datum)
+    </div>
+    <div>
+        <label>Zaposlenik: </label>
+        @Html.EditorFor(x => x.Zaposlenik)
+        @Html.ValidationMessageFor(x => x.Zaposlenik)
+    </div>
+    <div>
+        <label>Kupac: </label>
+        @Html.EditorFor(x => x.Kupac)
+        @Html.ValidationMessageFor(x => x.Kupac)
+    </div>
+    <div>
+        <label>Cijena: </label>
+        @Html.EditorFor(x => x.Cijena)
+        @Html.ValidationMessageFor(x => x.Cijena)
+    </div>
+    <input type="submit" value="Pošalji" />
+
+    <input type="hidden" name="id" value="IzdavanjeRacuna2" />
+}
