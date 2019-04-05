@@ -30,9 +30,9 @@ namespace HelloWorld.Models
         [DataType(DataType.Date)]
         public DateTime? DatumRodjenja { get; set; }
 
-        public string Napomena { get; set; }
-
         [UIHint("MultilineText")]
+        public string Napomena { get; set; }
+       
         public Adresa AdresaOsobe { get; set; }
     }
 }

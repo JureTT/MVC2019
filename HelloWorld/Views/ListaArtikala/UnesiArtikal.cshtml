@@ -1,0 +1,28 @@
+﻿@model HelloWorld.Models.Artikl
+@{
+    ViewBag.Title = "UnesiArtikal";
+}
+
+<h2>UnesiArtikal</h2>
+
+<div>
+    @using (Html.BeginForm("UnesiArtikal", "ListaArtikala", FormMethod.Post))
+    {
+        <div>
+            <label for="Ime">Ime: </label>
+            @Html.TextBoxFor(y => y.Naziv)
+        </div>
+        <div>
+            <label for="Naziv">Naziv: </label>
+            @Html.TextBoxFor(y => y.Naziv)
+        </div>
+        <div>
+            <label for="Cijena">Cijena: </label>
+            @Html.TextBoxFor(y => y.Cijena)
+        </div>
+        <div>
+            <label for="Kolicina">Količina: </label>
+            @Html.TextBoxFor(y => y.Kolicina)
+        </div>
+    }
+</div>

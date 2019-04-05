@@ -147,6 +147,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HtmlHelperiController.cs" />
     <Compile Include="Controllers\LayoutSectionController.cs" />
+    <Compile Include="Controllers\ListaArtikalaController.cs" />
     <Compile Include="Controllers\MetaDataHtmlHelperiController.cs" />
     <Compile Include="Controllers\NaruciController.cs" />
     <Compile Include="Controllers\OsobaController.cs" />
@@ -230,6 +231,7 @@
     <Content Include="Views\TemplHtmlHelperi\HtmlLabelDisplay.cshtml" />
     <Content Include="Views\TemplHtmlHelperi\EditorModelView.cshtml" />
     <Content Include="Views\MetaDataHtmlHelperi\MetaDataView.cshtml" />
+    <Content Include="Views\ListaArtikala\UnesiArtikal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

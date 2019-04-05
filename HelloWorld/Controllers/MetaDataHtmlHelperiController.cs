@@ -16,7 +16,7 @@ namespace HelloWorld.Controllers
         [HttpPost]
         public ViewResult MetaDataView(OsobaMeta osoba)
         {
-            return View("HtmlLabelDisplay", osoba);
+            return View("~/Views/TemplHtmlHelperi/HtmlLabelDisplay.cshtml", osoba);
         }
     }
 }
