@@ -232,6 +232,7 @@
     <Content Include="Views\TemplHtmlHelperi\EditorModelView.cshtml" />
     <Content Include="Views\MetaDataHtmlHelperi\MetaDataView.cshtml" />
     <Content Include="Views\ListaArtikala\UnesiArtikal.cshtml" />
+    <Content Include="Views\ListaArtikala\DodajArtikal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

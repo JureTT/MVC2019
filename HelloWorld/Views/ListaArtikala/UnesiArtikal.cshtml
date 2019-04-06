@@ -4,13 +4,19 @@
 }
 
 <h2>UnesiArtikal</h2>
-
+<style>
+    label {
+        width: 150px;
+        padding-top: 10px;
+        display: inline-block;
+    }
+</style>
 <div>
-    @using (Html.BeginForm("UnesiArtikal", "ListaArtikala", FormMethod.Post))
+    @using (Html.BeginForm("DodajArtikal", "ListaArtikala"))
     {
         <div>
-            <label for="Ime">Ime: </label>
-            @Html.TextBoxFor(y => y.Naziv)
+            <label for="Kategorija">Kategorija: </label>
+            @Html.DropDownListFor(y => y.Kategorija, new SelectList((string[])ViewBag.Kategorije, "--Odaberi--"))
         </div>
         <div>
             <label for="Naziv">Naziv: </label>
@@ -23,6 +29,9 @@
         <div>
             <label for="Kolicina">Količina: </label>
             @Html.TextBoxFor(y => y.Kolicina)
+        </div>
+        <div>
+            <button type="submit">Dodaj</button>
         </div>
     }
 </div>

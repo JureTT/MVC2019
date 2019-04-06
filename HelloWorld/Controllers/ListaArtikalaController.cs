@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelloWorld.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,14 +13,26 @@ namespace HelloWorld.Controllers
         public ActionResult UnesiArtikal()
         {
             string[] kategorije = new string[] { "Sport", "Glazba", "Tehnika" };
-            ViewBag.nešto = kategorije;
-            return View();
+            ViewBag.Kategorije = kategorije;
+            return View(new Artikl());
         }
-        // GET: ListaArtikala
+        
         [HttpPost]
-        public ActionResult DodajArtikal()
+        public ActionResult DodajArtikal(Artikl artikl)
         {
-            return View();
+            if(Session["Artikli"] != null)
+            {
+                List<Artikl> artikli = (List<Artikl>)Session["Artikli"];
+                artikli.Add(artikl);
+                Session["Artikli"] = artikli;
+            }
+            else
+            {
+                List<Artikl> artikli = new List<Artikl>();
+                artikli.Add(artikl);
+                Session["Artikli"] = artikli;
+            }
+            return View(Session["Artikli"]);
         }
     }
 }

@@ -1,0 +1,43 @@
+﻿@using HelloWorld.Models
+@model List<Artikl>
+@{
+    ViewBag.Title = "DodajArtikal";
+}
+
+<h2>DodajArtikal</h2>
+
+<style>
+    table, td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+    thead {
+        background-color: lightblue;
+    }
+</style>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Kategorija: </td>
+                <td>Naziv: </td>
+                <td>Cijena: </td>
+                <td>Količina: </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Kategorija</td>
+                    <td>@item.Naziv</td>
+                    <td>@item.Cijena</td>
+                    <td>@item.Kolicina</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<p>
+    <a href="/ListaArtikala/UnesiArtikal">Unos novog artikla</a>
+</p>
