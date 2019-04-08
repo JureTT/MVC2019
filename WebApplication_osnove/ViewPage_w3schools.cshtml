@@ -1,0 +1,44 @@
+﻿@using System.Data.SqlClient
+@using System.Configuration
+@{
+    Layout = null;
+    var dataFajl = Server.MapPath("~/textFolder/textFajl.txt");
+    Array juzerData = File.ReadAllLines(dataFajl);
+    SqlConnection konekcija = new SqlConnection("Data Source=DESKTOP-040SLHK\\SQLEXPRESS;Initial Catalog=upisi;Integrated Security=True");
+    SqlCommand komanda = new SqlCommand("SELECT * FROM polaznici", konekcija);
+    konekcija.Open();
+    SqlDataReader ispis = komanda.ExecuteReader();
+    int brojStupaca = ispis.FieldCount;
+    string[] tablica = new string[brojStupaca];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Podaci iz txt fajla</title>
+</head>
+<body>
+    <h3>Čitanje i ispis podataka iz txt fajla</h3>
+    <div>
+        @foreach (string red in juzerData)
+        {
+            @red <br />
+        }
+    </div>
+    <h3>@konekcija.Database.ToString();</h3>
+    <h3>@ispis.GetValue(1)    </h3>
+
+    <h3>
+        @while (ispis.Read())
+        {
+            @ispis.GetValue(0) @ispis.GetValue(1) @ispis.GetValue(2) @ispis.GetValue(3) <br />
+        }
+    </h3>
+    @{
+        konekcija.Close();
+    }
+
+</body>
+</html>
