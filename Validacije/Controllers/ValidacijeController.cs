@@ -10,13 +10,13 @@ namespace Validacije.Controllers
     public class ValidacijeController : Controller
     {
         // GET: Validacije
-        public ActionResult IzdvajanjeRacuna()
+        public ActionResult IzdavanjeRacuna()
         {
             return View( new Racun() { Datum = DateTime.Now, BrojRacuna = "/" + DateTime.Now.Year.ToString() });
         }
 
         [HttpPost]
-        public  ViewResult IzdvajanjeRacuna(Racun racun, string id)
+        public  ViewResult IzdavanjeRacuna(Racun racun, string id)
         {
             //obavezne vrijednosti
             if (string.IsNullOrEmpty(racun.BrojRacuna))
@@ -25,11 +25,11 @@ namespace Validacije.Controllers
             }
             if (string.IsNullOrEmpty(racun.Zaposlenik))
             {
-                ModelState.AddModelError("BrojRacuna", "Broj računa je obavezan!");
+                ModelState.AddModelError("Zaposlenik", "Zaposlenik je obavezan!");
             }
             if (string.IsNullOrEmpty(racun.Kupac))
             {
-                ModelState.AddModelError("BrojRacuna", "Broj računa je obavezan!");
+                ModelState.AddModelError("Kupac", "Kupac je obavezan!");
             }
 
             //model-level validacija
@@ -41,7 +41,8 @@ namespace Validacije.Controllers
                 }
             }
 
-            if(ModelState.IsValid)
+            //ukupna provjera validacije
+            if (ModelState.IsValid)
             {
                 return View("RacunIzdan", racun);
             }
@@ -56,16 +57,6 @@ namespace Validacije.Controllers
                     return View();
                 }
             }
-
-            //ukupna provjera validacije
-            if (ModelState.IsValid)
-            {
-                return View("RacunIzdan", racun);
-            }
-            else
-            {
-                return View();
-            }
         }
         
         public ViewResult IzdavanjeRacuna2()
@@ -78,6 +69,7 @@ namespace Validacije.Controllers
             return View(new MetaRacun() { Datum = DateTime.Now, BrojRacuna = "/" + DateTime.Now.Year.ToString() });
         }
 
+        [HttpPost]
         public ViewResult MetaIzdavanjeRacuna(MetaRacun metaRacun)
         {
             if (ModelState.IsValid)

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Validacije.Models.Validacije;
 
 namespace Validacije.Models
 {
-    [NeViseOdTriDana(ErrorMessage = "Datume ne smije biti manji za više od 3 dana!")]
+    [NeViseOdTriDana(ErrorMessage = "Datum ne smije biti manji za više od 3 dana!")]
     public class MetaRacun
     {
         [Required(ErrorMessage = "Broj računa je obavezan!")]
@@ -26,5 +27,6 @@ namespace Validacije.Models
         [Range(1, 1000, ErrorMessage = "Cijena mora biti unutar intervala [1 - 1000] !")]
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public decimal Cijena { get; set; }
+
     }
 }

@@ -16,7 +16,7 @@ namespace Validacije.Models.Validacije
                 if (mr.Datum < DateTime.Today.AddDays(-3))
                 {
                     return false;
-                }
+                }                
             }
             return true;
         }

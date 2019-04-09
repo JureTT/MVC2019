@@ -17,7 +17,7 @@
 
 @using (Html.BeginForm("IzdavanjeRacuna", "Validacije"))
 {
-    @Html.ValidationSummary()
+    @Html.ValidationSummary(true)
     <div>
         <label>Broj računa: </label>
         @Html.EditorFor(x => x.BrojRacuna)
