@@ -93,10 +93,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\SqlCommandObjektController.cs" />
     <Compile Include="Controllers\SqlConnectionObjektController.cs" />
+    <Compile Include="Controllers\SqlDataReaderObjektController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tecaj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +107,8 @@
     <Content Include="packages.config" />
     <Content Include="Views\SqlConnectionObjekt\Index.cshtml" />
     <Content Include="Views\SqlConnectionObjekt\SpojPrekoWebConfig.cshtml" />
+    <Content Include="Views\SqlCommandObjekt\Index.cshtml" />
+    <Content Include="Views\SqlDataReaderObjekt\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -113,7 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
