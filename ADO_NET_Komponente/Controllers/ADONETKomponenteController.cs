@@ -36,7 +36,7 @@ namespace ADO_NET_Komponente.Controllers
                 if (dr != null)
                 {
                     // ako postoji provjeri dal ima redova za pročitati
-                    if (dr != null)
+                    if (dr.HasRows)
                     {
                         while (dr.Read())
                         {

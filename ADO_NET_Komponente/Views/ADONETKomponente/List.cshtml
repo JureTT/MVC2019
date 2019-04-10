@@ -24,14 +24,14 @@
     {
     <tr>
         <td>
-            @Html.HiddenFor(modeleItem => item.IdPolaznik)
-            @Html.DisplayFor(modeleItem => item.Ime)
+            @Html.HiddenFor(modelItem => item.IdPolaznik)
+            @Html.DisplayFor(modelItem => item.Ime)
         </td>
         <td>
-            @Html.DisplayFor(modeleItem => item.Prezime)
+            @Html.DisplayFor(modelItem => item.Prezime)
         </td>
         <td>
-            @Html.DisplayFor(modeleItem => item.Email)
+            @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
             @Html.ActionLink("Uredi", "Edit", new { idPolaznik = item.IdPolaznik }) |
