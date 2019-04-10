@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ADO_NET_Komponente.Models.PolaznikModel>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>@Html.ActionLink("Kreiraj", "Create")</p>
+@ViewBag.Message
+@TempData["Message"]
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.HiddenFor(modeleItem => item.IdPolaznik)
+            @Html.DisplayFor(modeleItem => item.Ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modeleItem => item.Prezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modeleItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { idPolaznik = item.IdPolaznik }) |
+            @Html.ActionLink("Detalji", "Details", new { idPolaznik = item.IdPolaznik }) |
+            @Html.ActionLink("Obriši", "Delete", new { idPolaznik = item.IdPolaznik }) 
+        </td>
+    </tr>
+    }
+</table>

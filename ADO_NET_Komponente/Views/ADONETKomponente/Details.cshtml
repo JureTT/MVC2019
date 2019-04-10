@@ -1,0 +1,42 @@
+﻿@model ADO_NET_Komponente.Models.PolaznikModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div>
+    @ViewBag.Message
+    <fieldset>
+        <legend>PolaznikModel</legend>
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.IdPolaznik)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IdPolaznik)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ime)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ime)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Prezime)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </dl>
+    </fieldset>
+</div>
+<p>
+@Html.ActionLink("Uredi", "Edit", new { idPolaznik = Model.IdPolaznik }) |
+@Html.ActionLink("Lista", "List")
+</p>

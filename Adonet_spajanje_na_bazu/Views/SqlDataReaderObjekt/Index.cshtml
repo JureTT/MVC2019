@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Adonet_spajanje_na_bazu.Models.Tecaj>
 @{
     Layout = null;
 }
@@ -11,7 +11,29 @@
     <title>Index</title>
 </head>
 <body>
+    <h2>Index</h2>
     <div> 
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Naziv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Opis)
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Naziv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Opis)
+                    </td>
+                </tr>
+            }
+        </table>
     </div>
 </body>
 </html>

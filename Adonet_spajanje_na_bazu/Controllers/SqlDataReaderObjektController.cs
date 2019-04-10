@@ -46,6 +46,9 @@ namespace Adonet_spajanje_na_bazu.Controllers
                             tecaj.Id = int.Parse(reader["IdTecaj"].ToString());
                             tecaj.Naziv = reader["Naziv"].ToString();
                             tecaj.Opis = reader["Opis"].ToString();
+
+                            //Dodajemo tecaj u listu lstTecajevi
+                            lstTecajevi.Add(tecaj);
                         }
                     }
                 }

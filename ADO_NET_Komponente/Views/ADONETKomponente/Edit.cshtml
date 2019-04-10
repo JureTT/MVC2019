@@ -1,0 +1,35 @@
+﻿@model ADO_NET_Komponente.Models.PolaznikModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@ViewBag.Message
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>PolaznikModel</legend>
+        @Html.HiddenFor(model => model.IdPolaznik)
+
+        <div>
+            @Html.LabelFor(model => model.Ime)
+            @Html.EditorFor(model => model.Ime)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Prezime)
+            @Html.EditorFor(model => model.Prezime)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Email)
+            @Html.EditorFor(model => model.Email)
+        </div>
+        <div>
+            <input type="submit" value="Spremi" />
+        </div>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Lista", "List")
+</div>
