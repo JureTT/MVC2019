@@ -95,8 +95,10 @@ namespace Adresar.Controllers
             return View(kontakt);
         }
         // POST: Kontakt/Delete/id
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
+        //[HttpPost, ActionName("Delete")]
+        [HttpPost]
+        public ActionResult Delete(int id)
+        //public ActionResult DeleteConfirmed(int id)
         {
             Kontakt kontakt = _db.Kontakti.Find(id);
             _db.Kontakti.Remove(kontakt);
