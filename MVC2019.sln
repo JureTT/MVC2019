@@ -21,8 +21,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADO_NET_Komponente", "ADO_N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adresar", "Adresar\Adresar.csproj", "{381A5129-B5D5-4E6B-B537-4E2ABD04230E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop", "WebShop\WebShop.csproj", "{E1DA3505-F3F8-4D9D-9835-0374E716F9BC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,10 +63,6 @@ Global
 		{381A5129-B5D5-4E6B-B537-4E2ABD04230E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{381A5129-B5D5-4E6B-B537-4E2ABD04230E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{381A5129-B5D5-4E6B-B537-4E2ABD04230E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1DA3505-F3F8-4D9D-9835-0374E716F9BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1DA3505-F3F8-4D9D-9835-0374E716F9BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1DA3505-F3F8-4D9D-9835-0374E716F9BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1DA3505-F3F8-4D9D-9835-0374E716F9BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
