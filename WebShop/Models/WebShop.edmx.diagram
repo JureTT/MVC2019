@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="40268d3ca8c549c596d1b64bcf6ec4e2" Name="Diagram1">
+        <EntityTypeShape EntityType="WebShopModel.Kategorije" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebShopModel.KategorijeProizvodi" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebShopModel.Korisnici" Width="1.5" PointX="9.625" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebShopModel.MjereProizvoda" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebShopModel.Narudzbe" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebShopModel.NarudzbeDetalji" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebShopModel.Proizvodi" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="WebShopModel.FK__Kategorij__Kateg__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="WebShopModel.FK__Kategorij__Proiz__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="WebShopModel.FK__Narudzbe__Korisn__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="WebShopModel.FK__Proizvodi__Mjera__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="WebShopModel.FK__NarudzbeD__Narud__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="WebShopModel.FK__NarudzbeD__Proiz__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

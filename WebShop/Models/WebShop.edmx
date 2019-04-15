@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WebShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kategorije">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="KategorijeProizvodi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProizvodId" Type="int" Nullable="false" />
+          <Property Name="KategorijaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Korisnici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdresaDostave" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Kontakt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Napomena" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MjereProizvoda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Narudzbe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KorisnikId" Type="int" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DatumKreiranja" Type="datetime" Nullable="false" />
+          <Property Name="DatumVrijemeDostave" Type="datetime" Nullable="false" />
+          <Property Name="JeDostavljeno" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NarudzbeDetalji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NarudzbaId" Type="int" />
+          <Property Name="ProizvodId" Type="int" />
+          <Property Name="Kolicina" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="JedCijena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proizvodi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MjeraProizvodaId" Type="smallint" Nullable="false" />
+          <Property Name="VrijemeKreiranja" Type="datetime" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cijena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Dostupan" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Kategorij__Kateg__47DBAE45">
+          <End Role="Kategorije" Type="Self.Kategorije" Multiplicity="1" />
+          <End Role="KategorijeProizvodi" Type="Self.KategorijeProizvodi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorije">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KategorijeProizvodi">
+              <PropertyRef Name="KategorijaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kategorij__Proiz__46E78A0C">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="KategorijeProizvodi" Type="Self.KategorijeProizvodi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KategorijeProizvodi">
+              <PropertyRef Name="ProizvodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudzbe__Korisn__3E52440B">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="1" />
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudzbe">
+              <PropertyRef Name="KorisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NarudzbeD__Narud__412EB0B6">
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="0..1" />
+          <End Role="NarudzbeDetalji" Type="Self.NarudzbeDetalji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narudzbe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NarudzbeDetalji">
+              <PropertyRef Name="NarudzbaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NarudzbeD__Proiz__4222D4EF">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="0..1" />
+          <End Role="NarudzbeDetalji" Type="Self.NarudzbeDetalji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NarudzbeDetalji">
+              <PropertyRef Name="ProizvodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proizvodi__Mjera__398D8EEE">
+          <End Role="MjereProizvoda" Type="Self.MjereProizvoda" Multiplicity="1" />
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MjereProizvoda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proizvodi">
+              <PropertyRef Name="MjeraProizvodaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WebShopModelStoreContainer">
+          <EntitySet Name="Kategorije" EntityType="Self.Kategorije" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KategorijeProizvodi" EntityType="Self.KategorijeProizvodi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Korisnici" EntityType="Self.Korisnici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MjereProizvoda" EntityType="Self.MjereProizvoda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Narudzbe" EntityType="Self.Narudzbe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NarudzbeDetalji" EntityType="Self.NarudzbeDetalji" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proizvodi" EntityType="Self.Proizvodi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Kategorij__Kateg__47DBAE45" Association="Self.FK__Kategorij__Kateg__47DBAE45">
+            <End Role="Kategorije" EntitySet="Kategorije" />
+            <End Role="KategorijeProizvodi" EntitySet="KategorijeProizvodi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kategorij__Proiz__46E78A0C" Association="Self.FK__Kategorij__Proiz__46E78A0C">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="KategorijeProizvodi" EntitySet="KategorijeProizvodi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudzbe__Korisn__3E52440B" Association="Self.FK__Narudzbe__Korisn__3E52440B">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Narudzbe" EntitySet="Narudzbe" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NarudzbeD__Narud__412EB0B6" Association="Self.FK__NarudzbeD__Narud__412EB0B6">
+            <End Role="Narudzbe" EntitySet="Narudzbe" />
+            <End Role="NarudzbeDetalji" EntitySet="NarudzbeDetalji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NarudzbeD__Proiz__4222D4EF" Association="Self.FK__NarudzbeD__Proiz__4222D4EF">
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+            <End Role="NarudzbeDetalji" EntitySet="NarudzbeDetalji" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proizvodi__Mjera__398D8EEE" Association="Self.FK__Proizvodi__Mjera__398D8EEE">
+            <End Role="MjereProizvoda" EntitySet="MjereProizvoda" />
+            <End Role="Proizvodi" EntitySet="Proizvodi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kategorije">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KategorijeProizvodis" Relationship="Self.FK__Kategorij__Kateg__47DBAE45" FromRole="Kategorije" ToRole="KategorijeProizvodi" />
+        </EntityType>
+        <EntityType Name="KategorijeProizvodi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProizvodId" Type="Int32" Nullable="false" />
+          <Property Name="KategorijaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kategorije" Relationship="Self.FK__Kategorij__Kateg__47DBAE45" FromRole="KategorijeProizvodi" ToRole="Kategorije" />
+          <NavigationProperty Name="Proizvodi" Relationship="Self.FK__Kategorij__Proiz__46E78A0C" FromRole="KategorijeProizvodi" ToRole="Proizvodi" />
+        </EntityType>
+        <EntityType Name="Korisnici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdresaDostave" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kontakt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Napomena" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Narudzbes" Relationship="Self.FK__Narudzbe__Korisn__3E52440B" FromRole="Korisnici" ToRole="Narudzbe" />
+        </EntityType>
+        <EntityType Name="MjereProizvoda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Proizvodis" Relationship="Self.FK__Proizvodi__Mjera__398D8EEE" FromRole="MjereProizvoda" ToRole="Proizvodi" />
+        </EntityType>
+        <EntityType Name="Narudzbe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KorisnikId" Type="Int32" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DatumKreiranja" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DatumVrijemeDostave" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="JeDostavljeno" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Korisnici" Relationship="Self.FK__Narudzbe__Korisn__3E52440B" FromRole="Narudzbe" ToRole="Korisnici" />
+          <NavigationProperty Name="NarudzbeDetaljis" Relationship="Self.FK__NarudzbeD__Narud__412EB0B6" FromRole="Narudzbe" ToRole="NarudzbeDetalji" />
+        </EntityType>
+        <EntityType Name="NarudzbeDetalji">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NarudzbaId" Type="Int32" />
+          <Property Name="ProizvodId" Type="Int32" />
+          <Property Name="Kolicina" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="JedCijena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Narudzbe" Relationship="Self.FK__NarudzbeD__Narud__412EB0B6" FromRole="NarudzbeDetalji" ToRole="Narudzbe" />
+          <NavigationProperty Name="Proizvodi" Relationship="Self.FK__NarudzbeD__Proiz__4222D4EF" FromRole="NarudzbeDetalji" ToRole="Proizvodi" />
+        </EntityType>
+        <EntityType Name="Proizvodi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MjeraProizvodaId" Type="Int16" Nullable="false" />
+          <Property Name="VrijemeKreiranja" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cijena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Dostupan" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="KategorijeProizvodis" Relationship="Self.FK__Kategorij__Proiz__46E78A0C" FromRole="Proizvodi" ToRole="KategorijeProizvodi" />
+          <NavigationProperty Name="MjereProizvoda" Relationship="Self.FK__Proizvodi__Mjera__398D8EEE" FromRole="Proizvodi" ToRole="MjereProizvoda" />
+          <NavigationProperty Name="NarudzbeDetaljis" Relationship="Self.FK__NarudzbeD__Proiz__4222D4EF" FromRole="Proizvodi" ToRole="NarudzbeDetalji" />
+        </EntityType>
+        <Association Name="FK__Kategorij__Kateg__47DBAE45">
+          <End Role="Kategorije" Type="Self.Kategorije" Multiplicity="1" />
+          <End Role="KategorijeProizvodi" Type="Self.KategorijeProizvodi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorije">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KategorijeProizvodi">
+              <PropertyRef Name="KategorijaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Kategorij__Proiz__46E78A0C">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="1" />
+          <End Role="KategorijeProizvodi" Type="Self.KategorijeProizvodi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KategorijeProizvodi">
+              <PropertyRef Name="ProizvodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Narudzbe__Korisn__3E52440B">
+          <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="1" />
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Narudzbe">
+              <PropertyRef Name="KorisnikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proizvodi__Mjera__398D8EEE">
+          <End Role="MjereProizvoda" Type="Self.MjereProizvoda" Multiplicity="1" />
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MjereProizvoda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proizvodi">
+              <PropertyRef Name="MjeraProizvodaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NarudzbeD__Narud__412EB0B6">
+          <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="0..1" />
+          <End Role="NarudzbeDetalji" Type="Self.NarudzbeDetalji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Narudzbe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NarudzbeDetalji">
+              <PropertyRef Name="NarudzbaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NarudzbeD__Proiz__4222D4EF">
+          <End Role="Proizvodi" Type="Self.Proizvodi" Multiplicity="0..1" />
+          <End Role="NarudzbeDetalji" Type="Self.NarudzbeDetalji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodi">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NarudzbeDetalji">
+              <PropertyRef Name="ProizvodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WebShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kategorijes" EntityType="Self.Kategorije" />
+          <EntitySet Name="KategorijeProizvodis" EntityType="Self.KategorijeProizvodi" />
+          <EntitySet Name="Korisnicis" EntityType="Self.Korisnici" />
+          <EntitySet Name="MjereProizvodas" EntityType="Self.MjereProizvoda" />
+          <EntitySet Name="Narudzbes" EntityType="Self.Narudzbe" />
+          <EntitySet Name="NarudzbeDetaljis" EntityType="Self.NarudzbeDetalji" />
+          <EntitySet Name="Proizvodis" EntityType="Self.Proizvodi" />
+          <AssociationSet Name="FK__Kategorij__Kateg__47DBAE45" Association="Self.FK__Kategorij__Kateg__47DBAE45">
+            <End Role="Kategorije" EntitySet="Kategorijes" />
+            <End Role="KategorijeProizvodi" EntitySet="KategorijeProizvodis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Kategorij__Proiz__46E78A0C" Association="Self.FK__Kategorij__Proiz__46E78A0C">
+            <End Role="Proizvodi" EntitySet="Proizvodis" />
+            <End Role="KategorijeProizvodi" EntitySet="KategorijeProizvodis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Narudzbe__Korisn__3E52440B" Association="Self.FK__Narudzbe__Korisn__3E52440B">
+            <End Role="Korisnici" EntitySet="Korisnicis" />
+            <End Role="Narudzbe" EntitySet="Narudzbes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proizvodi__Mjera__398D8EEE" Association="Self.FK__Proizvodi__Mjera__398D8EEE">
+            <End Role="MjereProizvoda" EntitySet="MjereProizvodas" />
+            <End Role="Proizvodi" EntitySet="Proizvodis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NarudzbeD__Narud__412EB0B6" Association="Self.FK__NarudzbeD__Narud__412EB0B6">
+            <End Role="Narudzbe" EntitySet="Narudzbes" />
+            <End Role="NarudzbeDetalji" EntitySet="NarudzbeDetaljis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NarudzbeD__Proiz__4222D4EF" Association="Self.FK__NarudzbeD__Proiz__4222D4EF">
+            <End Role="Proizvodi" EntitySet="Proizvodis" />
+            <End Role="NarudzbeDetalji" EntitySet="NarudzbeDetaljis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebShopModelStoreContainer" CdmEntityContainer="WebShopEntities">
+          <EntitySetMapping Name="Kategorijes">
+            <EntityTypeMapping TypeName="WebShopModel.Kategorije">
+              <MappingFragment StoreEntitySet="Kategorije">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KategorijeProizvodis">
+            <EntityTypeMapping TypeName="WebShopModel.KategorijeProizvodi">
+              <MappingFragment StoreEntitySet="KategorijeProizvodi">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProizvodId" ColumnName="ProizvodId" />
+                <ScalarProperty Name="KategorijaId" ColumnName="KategorijaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Korisnicis">
+            <EntityTypeMapping TypeName="WebShopModel.Korisnici">
+              <MappingFragment StoreEntitySet="Korisnici">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AdresaDostave" ColumnName="AdresaDostave" />
+                <ScalarProperty Name="Kontakt" ColumnName="Kontakt" />
+                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MjereProizvodas">
+            <EntityTypeMapping TypeName="WebShopModel.MjereProizvoda">
+              <MappingFragment StoreEntitySet="MjereProizvoda">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Narudzbes">
+            <EntityTypeMapping TypeName="WebShopModel.Narudzbe">
+              <MappingFragment StoreEntitySet="Narudzbe">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DatumKreiranja" ColumnName="DatumKreiranja" />
+                <ScalarProperty Name="DatumVrijemeDostave" ColumnName="DatumVrijemeDostave" />
+                <ScalarProperty Name="JeDostavljeno" ColumnName="JeDostavljeno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NarudzbeDetaljis">
+            <EntityTypeMapping TypeName="WebShopModel.NarudzbeDetalji">
+              <MappingFragment StoreEntitySet="NarudzbeDetalji">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
+                <ScalarProperty Name="ProizvodId" ColumnName="ProizvodId" />
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+                <ScalarProperty Name="JedCijena" ColumnName="JedCijena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proizvodis">
+            <EntityTypeMapping TypeName="WebShopModel.Proizvodi">
+              <MappingFragment StoreEntitySet="Proizvodi">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MjeraProizvodaId" ColumnName="MjeraProizvodaId" />
+                <ScalarProperty Name="VrijemeKreiranja" ColumnName="VrijemeKreiranja" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+                <ScalarProperty Name="Dostupan" ColumnName="Dostupan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

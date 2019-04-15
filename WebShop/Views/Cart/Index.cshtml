@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebShop.Models.Proizvodi>
+
+@{
+    ViewBag.Title = "Index";
+    int itemIndex = 0;
+}
+
+<h2>Košarica</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VrijemeKreiranja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dostupan)
+        </th>
+        <th>
+            Mjera
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VrijemeKreiranja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cijena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dostupan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MjereProizvoda.Naziv)
+        </td>
+        <td>
+            @Html.ActionLink("Remove", "RemoveFromCart", new { index = itemIndex }) 
+        </td>
+    </tr>
+    itemIndex++;
+}
+</table>
+@Html.ActionLink(linkText: "Checkout", actionName: "CreateUser", controllerName: "Checkout")

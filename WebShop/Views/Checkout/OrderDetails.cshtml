@@ -1,0 +1,104 @@
+﻿@model WebShop.Models.Narudzbe
+@using WebShop.Models;
+
+@{
+    ViewBag.Title = "OrderDetails";
+    List<NarudzbeDetalji> lstDetalji = ViewBag.Detalji as List<NarudzbeDetalji>;
+}
+
+<h2>OrderDetails</h2>
+
+<div>
+    <h4>Narudzbe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumKreiranja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumKreiranja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumVrijemeDostave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumVrijemeDostave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JeDostavljeno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JeDostavljeno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Korisnici.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Korisnici.Ime)
+        </dd>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Naziv
+                    </th>
+                    <th>
+                        Cijena
+                    </th>
+                    <th>
+                        Količina
+                    </th>
+                    <th>
+                        Ukupno
+                    </th>
+                </tr>
+                @foreach (NarudzbeDetalji item in lstDetalji)
+                {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Proizvodi.Naziv</td>
+                    <td>@item.JedCijena</td>
+                    <td>@item.Kolicina</td>
+                    <td>
+                        @{ 
+                        decimal ukupnaCijena = decimal.Round(item.Kolicina * item.JedCijena, 2);
+                        @ukupnaCijena
+                        }
+                    </td>
+                </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Natrag na trgovinu", "Index", "WebShop") |
+    @Html.ActionLink("Potvrdi", "Confirm")
+</p>
