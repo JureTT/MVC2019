@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Ispit_ASPNET.Models.Poklon>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Popis uskršnjih poklona</h2>
+
+<p>
+    @Html.ActionLink("Dodaj", "Dodaj")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kolicina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Napomena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kupljeno)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kolicina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cijena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Napomena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kupljeno)
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "Uredi", new { id = item.Id }) |
+                @Html.ActionLink("Detalji", "Detalji", new { id = item.Id }) |
+                @Html.ActionLink("Obriši", "Obrisi", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Kupljeno", "Kupljeno")
+</p>
