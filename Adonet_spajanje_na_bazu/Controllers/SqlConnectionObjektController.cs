@@ -14,7 +14,7 @@ namespace Adonet_spajanje_na_bazu.Controllers
         public ActionResult Index()
         {
             //Prvo kreiramo conn string
-            string connString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = dbAlgebra; Integrated Security = True"; //koristi uvijek @ (monkey)
+            string connString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = dbAlgebra; Integrated Security = True"; //koristi uvijek @ (monkey) radi escape simbola
 
             // Nakon toga instanca SqlConnection
             SqlConnection conn = new SqlConnection(connString);

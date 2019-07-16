@@ -1,0 +1,48 @@
+﻿@model Mono_zadatak.Models.MarkaVozilaVM
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Obriši</h2>
+
+<h3>Jeste li sigurni da želite obrisati marku vozila?</h3>
+<div>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <dl class="dl-horizontal">
+
+        @Html.HiddenFor(model => model.Id)
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kratica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kratica)
+        </dd>
+
+        <dt>
+            <br />
+            <input type="submit" value="Obriši" class="btn btn-default" />
+        </dt>
+        <dd>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Message">@TempData["Message"]</span>
+        </dd>
+
+    </dl>
+        <div class="form-actions no-color">           
+            @Html.ActionLink("Lista", "List")
+        </div>
+    }
+</div>

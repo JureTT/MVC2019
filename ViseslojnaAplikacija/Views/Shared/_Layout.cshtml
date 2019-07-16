@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <body>
+        <header class="header">
+            <nav class="main-nav">
+                <a href="/Polaznik/List/">Polaznici</a>
+                <a href="/Tecaj/List/">Tečajevi</a>
+            </nav>
+        </header>
+        <main id="main">
+            <div class="message">
+                @ViewBag.Message
+                @TempData["Message"]
+            </div>
+            @RenderBody()
+        </main>
+        <footer class="footer">
+            <p>
+                Jure Perić &copy; Sva prava pridržana - @DateTime.Now.Year
+            </p>
+        </footer>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    </body>
+</html>

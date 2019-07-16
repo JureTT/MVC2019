@@ -1,0 +1,97 @@
+﻿@using Mono_zadatak.Service;
+@using Mono_zadatak.Models;
+@model IEnumerable<Mono_zadatak.Models.ModelVozilaVM>
+
+@{
+    ViewBag.Title = "List";
+    VehicleService servis = new VehicleService();
+    List<MarkaVozilaVM> lista = servis.DohvatiMarkeVM();
+    MarkaVozilaVM svaVozila = new MarkaVozilaVM { Id = 0, Kratica = "Sve" };
+    lista.Insert(0, svaVozila);
+    int a = 0;
+}
+
+<h2>Lista</h2>
+
+<script type="text/javascript">
+
+    function promjeniId() {
+        var id = document.getElementById("Marke").value;
+        var url = "/Model/List?idMarke=" + id;
+        document.getElementById("Forma").action = url;
+    }
+</script>
+<p>
+    @Html.ActionLink("Kreiraj", "Create")
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Message">@TempData["Message"]</span>
+
+    @using (Html.BeginForm("List", "Model", FormMethod.Post, new { id = "Forma" }))
+    {
+        <label>Filter: </label>
+        @Html.DropDownList("Marke",
+                lista.Select(item => new SelectListItem { Value = item.Id.ToString(), Text = item.Kratica }),
+                "--odaberi--",
+                new
+                {
+                    onchange = "promjeniId();submit()"
+                })
+    }
+
+</p>
+@*<form method="post" action="/Model/List">
+        <label>Filter:</label>
+        <select name="Filter">
+            <option value="">sve</option>
+            @foreach (var item in lista)
+            {
+                <option value="@item.Id">@item.Kratica</option>
+            }
+        </select>
+        <div>
+            <input type="submit" />
+        </div>
+
+    </form>
+    Html.ActionLink("Details", "Details", new { idModela = item.Id })*@
+
+<table class="table">
+    <tr>
+        <th>
+            Redni broj
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdMarke)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kratica)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                @(a = a + 1)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMarke)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kratica)
+            </td>
+            <td>
+                @Html.ActionLink("Uredi", "Edit", new { idModela = item.Id }) |
+                @Html.ActionLink("Detalji", "Details", new { idModela = item.Id }) |
+                @Html.ActionLink("Obriši", "Delete", new { idModela = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

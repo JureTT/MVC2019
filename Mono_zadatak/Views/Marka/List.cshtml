@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Mono_zadatak.Models.MarkaVozilaVM>
+
+@{
+    ViewBag.Title = "List";
+    int a = 0;
+}
+
+<h2>Lista</h2>
+
+<p>
+    @Html.ActionLink("Kreiraj", "Create")
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Message">@TempData["Message"]</span>
+</p>
+           
+<table class="table">
+    <tr>
+        <th>
+            Redni broj
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kratica)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <th>
+            @(a = a + 1)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kratica)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { idMarke = item.Id }) |
+            @Html.ActionLink("Detalji", "Details", new { idMarke = item.Id }) |
+            @Html.ActionLink("Obriši", "Delete", new { idMarke = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

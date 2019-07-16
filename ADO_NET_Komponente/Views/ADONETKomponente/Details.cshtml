@@ -1,4 +1,4 @@
-﻿@model ADO_NET_Komponente.Models.PolaznikModel
+﻿@m@model ADO_NET_Komponente.Models.PolaznikModel
 @{
     ViewBag.Title = "Details";
 }
@@ -37,6 +37,6 @@
     </fieldset>
 </div>
 <p>
-@Html.ActionLink("Uredi", "Edit", new { idPolaznik = Model.IdPolaznik }) |
-@Html.ActionLink("Lista", "List")
+    @Html.ActionLink("Uredi", "Edit", new { idPolaznik = Model.IdPolaznik }) |
+    @Html.ActionLink("Lista", "List")
 </p>
