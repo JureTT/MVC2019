@@ -20,6 +20,13 @@ namespace Mono_zadatak.Service
             cfg.CreateMap<ModelVozila, ModelVozilaVM>();
             cfg.CreateMap<MarkaVozilaVM, MarkaVozila>();
             cfg.CreateMap<ModelVozilaVM, ModelVozila>();
+            cfg.CreateMap<ModelVozila, VozilaFull>()
+            .ForMember(dest => dest.IdModel, opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.IdMarka, opt => opt.MapFrom(src => src.IdMarke))
+            .ForMember(dest => dest.NazivModel, opt => opt.MapFrom(src => src.Naziv)) 
+            .ForMember(dest => dest.Kratica, opt => opt.MapFrom(src => src.Kratica))
+            ;
+
         });
         IMapper maper => configuration.CreateMapper();
 
@@ -31,6 +38,22 @@ namespace Mono_zadatak.Service
         public static VozilaDbContext _db = new VozilaDbContext();
 
         static VehicleService servis = new VehicleService();
+
+        public static List<VozilaFull> DohvatiVozila()
+        {
+            List<VozilaFull> lista = (from model in _db.ModeliVozila
+                                      join marka in _db.MarkeVozila 
+                                      on model.IdMarke equals marka.Id 
+                                      select new VozilaFull
+                                      {
+                                          IdMarka = marka.Id,
+                                          NazivMarka = marka.Naziv,
+                                          Kratica = marka.Kratica,
+                                          IdModel = model.Id,
+                                          NazivModel = model.Naziv
+                                      }).ToList();
+            return lista;
+        }
 
         #region MarkaCRUD
         public List<MarkaVozilaVM> DohvatiMarkeVM()

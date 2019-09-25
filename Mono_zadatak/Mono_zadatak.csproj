@@ -164,6 +164,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
     <Compile Include="Controllers\ModelController.cs" />
+    <Compile Include="Controllers\VozilaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,6 +176,7 @@
     <Compile Include="Models\ModelVozila.cs" />
     <Compile Include="Models\ModelVozilaVM.cs" />
     <Compile Include="Models\VozilaDbContext.cs" />
+    <Compile Include="Models\VozilaFull.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\VehicleService.cs" />
   </ItemGroup>
@@ -229,6 +231,7 @@
     <Content Include="Views\Model\Details.cshtml" />
     <Content Include="Views\Model\List.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Vozila\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

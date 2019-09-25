@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Mono_zadatak.Models.VozilaFull>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NazivModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kratica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdMarka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NazivMarka)
+        </th>
+        <th>Pretraži internet:</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NazivModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kratica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdMarka)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NazivMarka)
+        </td>
+        <td>
+            <a target="_blank" href="http://www.google.com/search?q= @item.NazivModel @item.Kratica">Google</a> |
+            <a target="_blank" href="http://www.youtube.com/results?search_query= @item.NazivModel @item.Kratica">YouTube</a> |
+            <a target="_blank" href="http://en.wikipedia.org/wiki/@item.Kratica @item.NazivModel ">Wikipedia</a>
+        </td>
+    </tr>
+}
+
+</table>
